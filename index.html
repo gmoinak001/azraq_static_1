@@ -79,20 +79,27 @@ h3 {
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="images/azraq_logo.png" style="height: 25px; width 75px;"></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/"><img src="../images/azraq_logo.png" style="height: 25px; width 75px;"></a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Mining Wiki</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="./pages/about.html">About</a></li>
+        <li><a href="./pages/miner.html">Cloud Miner</a></li>
+        <li><a href="./pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
     <br>
 <div class="bgimg-1">
   <div class="caption">
-    <span class="border"><img src="images/azraq_logo.png" style="height: 50px; width 125px;"> | India's Cloud Miner</span>
+    <span class="border">India's FIRST Cloud Miner</span>
   </div>
 </div>
 
