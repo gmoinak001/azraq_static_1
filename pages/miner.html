@@ -14,53 +14,11 @@ body, html {
   background-color: #82B1FF;
 }
 
-p {
-  text-align: center;
-  font-size: 60px;
-  margin-top:0px;
+.container {
+  margin-top: 13px;
 }
-    
-hr {
-    margin: auto;
-    width: 40%;
-}
-    
-.going_live {
-    margin-top: 79px;
-}    
-
-    
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial;
-    font-size: 17px;
-}
-
-#myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-}
-
-    
-.content {
-    position: relative;
-    top: 0;
-    bottom: 0;
-    color: #f1f1f1;
-    width: 100%;
-    padding: 20px;
-}
-    
-
 </style>
-    
+
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Feb 15, 2018 15:37:25").getTime();
@@ -70,21 +28,21 @@ var x = setInterval(function() {
 
     // Get todays date and time
     var now = new Date().getTime();
-    
+
     // Find the distance between now an the count down date
     var distance = countDownDate - now;
-    
+
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
+
     // Output the result in an element with id="demo"
     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
-    
-    // If the count down is over, write some text 
+
+    // If the count down is over, write some text
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("demo").innerHTML = "EXPIRED";
@@ -93,14 +51,14 @@ var x = setInterval(function() {
 </script>
 </head>
 <body>
-    
+
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/"><img src="../images/azraq_logo.png" style="height: 25px; width 75px;"></a>
     </div>
@@ -114,17 +72,36 @@ var x = setInterval(function() {
   </div>
 </nav>
     <br>
-    
-<video autoplay muted loop id="myVideo">
-<source src="../video/24849679_897541000413759_551373148247818240_n.mp4" type="video/mp4">
-Your browser does not support HTML5 video.
-</video>    
-<div class="content">
-    <div class="going_live">
-        <p>Going live in:</p>
-        <hr>
-        <p id="demo"></p>
+
+    <div class="container">
+      <h2>Early Bird sign up!</h2>
+      <p>We are going live on February 15, 2018. Till then we are doing a discount giveaway of our cloud mining contracts. Check out the prices and the benefits below and sign up. You can pay through Paytm, UPI, or Paypal as well.</p>
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+        <li><a data-toggle="tab" href="#menu1">Bronze</a></li>
+        <li><a data-toggle="tab" href="#menu2">Silver</a></li>
+        <li><a data-toggle="tab" href="#menu3">Gold</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <h3>Going live in:</h3>
+          <div id="demo"></div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+          <h3>Bronze Pack</h3>
+          <p>Rs. 200/- pack details</p>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <h3>Silver Pack</h3>
+          <p>Rs. 250/- Pack details</p>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+          <h3>Gold Pack</h3>
+          <p>Rs. 398/- pack details</p>
+        </div>
+      </div>
     </div>
-</div>    
 </body>
 </html>
