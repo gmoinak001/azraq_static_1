@@ -90,7 +90,28 @@ var x = setInterval(function() {
 
           <div id="form">
             <div class="embed-responsive embed-responsive-16by9"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLScs_TlAy5CsC4iikCRh8zVvdzP-Mp-usz-WeCmVWHNTa3YFbA/viewform?embedded=true" width="750" height="330" frameborder="0" marginheight="0" marginwidth="0" style="float: left;">Loading...</iframe></div>
-            <a href="https://pmny.in/LI0JxrSRBdte"><img src="../images/Pay-Here-button.png" style="height: 95px; width: 165px; float: left; margin-left: 35px;"></a>
+            <div class="container">
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click Here to Pay</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Scan to Pay/ Neeche number pein PayTM karo!!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <img src="../images/paytm.jpg" class="img-responsive" alt="Pay Here" style="width: 100%; margin: 0 auto; position: relative;">
+                  </div>
+                  <h2>PayTM Number: +91-976-410-7432</h2>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div id="menu1" class="tab-pane fade">
