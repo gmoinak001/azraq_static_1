@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  background-color: #EEEEEE;
+}
+    
+.container {
+  margin-top: 33px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+</style>
+
+    
+</head>
+<body>
+<div class="container">
+    <label><b>Username</b></label>
+      <input id="uname" type="text" placeholder="Enter Username" required>
+
+      <label><b>Password</b></label>
+      <input id="psw" type="password" placeholder="Enter Password" required>
+        
+      <button type="submit" id="submit">Login</button>
+    
+    <div id="formcontainer" class="div div-action hide">
+        <h2>Cloud Mining Coming Soon!! Give visiting us for more innformation....</h2>
+        <button type="submit" id="logout">Logout</button></div>
+
+    <h2><a href="miner.html"><button type="button" class="btn btn-info">Go Back</button></a></h2>
+</div>
+      <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDho5ZexO-GOyzoeta1xH1DS3SCXLCHzOQ",
+        authDomain: "azraqstatic.firebaseapp.com",
+        databaseURL: "https://azraqstatic.firebaseio.com",
+        projectId: "azraqstatic",
+        storageBucket: "azraqstatic.appspot.com",
+        messagingSenderId: "1085619418851"
+      };
+      firebase.initializeApp(config);
+
+            //Get element by id
+            const btnlogout = document.getElementById('logout');
+            const formcontainer = document.getElementById('formcontainer');
+            const username = document.getElementById('uname');
+            const password = document.getElementById('psw');
+            const btnsubmit = document.getElementById('submit');
+
+            //Add login event
+            btnsubmit.addEventListener('click', e => {
+                //Get Email and pass
+                const email = username.value;
+                const psw = password.value;
+                const auth = firebase.auth();
+                //Sign In
+                const promise = auth.signInWithEmailAndPassword(email, psw);
+                promise.catch(e => console.log(e.message));
+                
+                btnlogout.addEventListener('click', e => {
+                    firebase.auth().signOut()
+                });
+
+                //Realtime listner to check authentication state changes
+                firebase.auth().onAuthStateChanged(firebaseUser => {
+                  if(firebaseUser) {
+                    console.log(firebaseUser);
+                      formcontainer.classList.remove('hide');
+                  } else {
+                    console.log('not logged in');
+                      formcontainer.classList.add('hide');
+                  }
+                });
+            });
+    </script>
+</body>
+</html>
