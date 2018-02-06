@@ -12,9 +12,9 @@ body, html {
   height: 100%;
   margin: 0;
   font: 400 15px/1.8 "Lato", sans-serif;
-  background-color: #EEEEEE;
+  background-color: #607D8B;
 }
-    
+
 .container {
   margin-top: 33px;
 }
@@ -53,24 +53,30 @@ button:hover {
 
 </style>
 
-    
+
 </head>
 <body>
 <div class="container">
+    <img src="../images/azraq_logo.png" style="height: 25px; width 75px;"><br><br>
     <label><b>Username</b></label>
       <input id="uname" type="text" placeholder="Enter Username" required>
 
       <label><b>Password</b></label>
       <input id="psw" type="password" placeholder="Enter Password" required>
-        
-      <button type="submit" id="submit">Login</button>
-    
-    <div id="formcontainer" class="div div-action hide">
-        <h2>Cloud Mining Coming Soon!! Give visiting us for more innformation....</h2>
-        <button type="submit" id="logout">Logout</button></div>
 
-    <h2><a href="miner.html"><button type="button" class="btn btn-info">Go Back</button></a></h2>
-</div>
+      <button type="submit" id="submit">Login</button>
+      <a href="./miner.html"><button type="submit" id="submit">Go Back</button></a>
+      </div>
+    <div id="formcontainer" class="div div-action hide"><br><br>
+      <div class="#" style="position: relative;">
+        <h4>Cloud Mining Coming Soon!! Give visiting us for more information....</h4>
+        <img src="../images/workinprogress.gif" class="img-responsive" alt="Work in Progress..." width="304" height="236">
+        <button type="submit" id="logout">Logout</button>
+      </div>
+      </div>
+
+
+
       <script>
       // Initialize Firebase
       var config = {
@@ -99,7 +105,7 @@ button:hover {
                 //Sign In
                 const promise = auth.signInWithEmailAndPassword(email, psw);
                 promise.catch(e => console.log(e.message));
-                
+
                 btnlogout.addEventListener('click', e => {
                     firebase.auth().signOut()
                 });
