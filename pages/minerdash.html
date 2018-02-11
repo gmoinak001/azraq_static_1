@@ -75,24 +75,6 @@ button:hover {
 <br>
 <div class="container">
     <img src="../images/azraq_logo.png" style="height: 25px; width 75px;"><br><br>
-    <label><b>Username</b></label>
-      <input id="uname" type="text" placeholder="Enter Username" required>
-
-      <label><b>Password</b></label>
-      <input id="psw" type="password" placeholder="Enter Password" required>
-      <br><br>
-      <div class="coinhive-captcha"
-    		data-hashes="1024"
-    		data-key="mUDNKd7gDkj8mJPZyWNIXgjwS068GBaS"
-    		data-whitelabel="false"
-    		data-disable-elements="button[type=submit]"
-    		data-callback="myCaptchaCallback"
-    	>
-    		<em>Loading Captcha...<br>
-    		If it doesn't load, please disable Adblock!</em>
-    	</div>
-      <button type="submit" id="submit">Login</button>
-      <a href="./miner.html"><button type="submit" id="submit">Go Back</button></a>
       </div>
     <div id="formcontainer" class="div div-action hide"><br><br>
       <div class="#" style="position: relative;">
@@ -119,35 +101,36 @@ button:hover {
             //Get element by id
             const btnlogout = document.getElementById('logout');
             const formcontainer = document.getElementById('formcontainer');
-            const username = document.getElementById('uname');
-            const password = document.getElementById('psw');
-            const btnsubmit = document.getElementById('submit');
+
+
+            btnlogout.addEventListener('click', e => {
+                firebase.auth().signOut();
+                window.location = 'login.html';
+            });
+
+            //Realtime listner to check authentication state changes
+            firebase.auth().onAuthStateChanged(firebaseUser => {
+              if(firebaseUser) {
+                console.log(firebaseUser);
+                  formcontainer.classList.remove('hide');
+              } else {
+                window.alert('not logged in');
+                  formcontainer.classList.add('hide');
+              }
+            });
 
             //Add login event
-            btnsubmit.addEventListener('click', e => {
+          //  btnsubmit.addEventListener('click', e => {
                 //Get Email and pass
-                const email = username.value;
-                const psw = password.value;
-                const auth = firebase.auth();
+        //        const email = username.value;
+          //      const psw = password.value;
+            //    const auth = firebase.auth();
                 //Sign In
-                const promise = auth.signInWithEmailAndPassword(email, psw);
-                promise.catch(e => console.log(e.message));
+              //  const promise = auth.signInWithEmailAndPassword(email, psw);
+                //promise.catch(e => console.log(e.message));
 
-                btnlogout.addEventListener('click', e => {
-                    firebase.auth().signOut()
-                });
 
-                //Realtime listner to check authentication state changes
-                firebase.auth().onAuthStateChanged(firebaseUser => {
-                  if(firebaseUser) {
-                    console.log(firebaseUser);
-                      window.location = 'minerdash.html';
-                  } else {
-                    console.log('not logged in');
-                      formcontainer.classList.add('hide');
-                  }
-                });
-            });
+            //});
     </script>
 </body>
 </html>
