@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<title>Dashboard</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -75,7 +75,6 @@ button:hover {
 <br>
 <div class="container">
     <img src="../images/azraq_logo.png" style="height: 25px; width 75px;"><br><br>
-      </div>
     <div id="formcontainer" class="div div-action hide"><br><br>
       <div class="#" style="position: relative;">
         <h4>Cloud Mining Coming Soon!! Keep visiting us for more information....</h4>
@@ -83,6 +82,8 @@ button:hover {
         <button type="submit" id="logout">Logout</button>
       </div>
       </div>
+</div>
+
 
 
 
@@ -115,7 +116,8 @@ button:hover {
                   formcontainer.classList.remove('hide');
               } else {
                 window.alert('not logged in');
-                  formcontainer.classList.add('hide');
+                
+                  window.location = 'login.html';
               }
             });
 

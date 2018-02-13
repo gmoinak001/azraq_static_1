@@ -102,6 +102,8 @@ h3 {
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
         <li><a href="./pages/miner.html">Cloud Miner</a></li>
+        <li><a href="./pages/minerdash.html">
+          <button type="submit" id="dashboardopt" class="btn btn-info btn-action hide" style="color: #2196F3;">Dashboard</button></a></li>
         <li><a href="./pages/faq.html">FAQs</a></li>
         <li><a href="./pages/contact.html">Contact</a></li>
       </ul>
@@ -158,5 +160,38 @@ h3 {
   </div>
 </div>
 
+<script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDho5ZexO-GOyzoeta1xH1DS3SCXLCHzOQ",
+  authDomain: "azraqstatic.firebaseapp.com",
+  databaseURL: "https://azraqstatic.firebaseio.com",
+  projectId: "azraqstatic",
+  storageBucket: "azraqstatic.appspot.com",
+  messagingSenderId: "1085619418851"
+};
+firebase.initializeApp(config);
+
+      //Get element by id
+      const btnlogout = document.getElementById('logout');
+      const formcontainer = document.getElementById('dashboardopt');
+
+
+      btnlogout.addEventListener('click', e => {
+          firebase.auth().signOut();
+          window.location = 'login.html';
+      });
+
+      //Realtime listner to check authentication state changes
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+        if(firebaseUser) {
+          console.log(firebaseUser);
+            formcontainer.classList.remove('hide');
+        } else {
+          window.alert('not logged in');
+            formcontainer.classList.add('hide');
+        }
+      });
+</script>
 </body>
 </html>
