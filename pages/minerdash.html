@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard</title>
+<title>azraq | Dashboard</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/minerdash.css">    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
@@ -22,57 +23,8 @@
 
   gtag('config', 'UA-113654796-1');
 </script>
-
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-  font: 400 15px/1.8 "Lato", sans-serif;
-  background-color: #EEEEEE;
-}
-
-.container {
-  margin-top: 33px;
-}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-</style>
-
-
 </head>
 <body>
-<br>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -87,7 +39,7 @@ button:hover {
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="./miner.html">Cloud Miner</a></li>
+        <li><a href="./miner.html">Products</a></li>
         <li class="active"><a href="./minerdash.html">Dashboard</a></li>
         <li><a href="./faq.html">FAQs</a></li>
         <li><a href="./contact.html">Contact</a></li>
@@ -100,11 +52,27 @@ button:hover {
 <br>
     <div id="formcontainer" class="div div-action hide"><br><br>
       <div class="#" style="position: relative;">
-        <h4>Cloud Mining Coming Soon!! Keep visiting us for more information....</h4>
-        <img src="../images/workinprogress.gif" class="img-responsive" alt="Work in Progress..." width="304" height="236">
-        <button type="submit" id="logout">Logout</button>
+        <p id="username"></p>
+        <button type="submit" id="logout" style="float: right;">Logout</button>
+        <h4 style="float: left;">Cloud Mining Coming Soon!! Keep visiting us for more information....</h4>
       </div>
       </div>
+    <br><br>
+    <label>Earning rate(per day): Rs. 50-70</label>
+      <br>
+     <!-- <label>Balance: </label> -->
+      <!-- <div id="shiva">Rs.<span id="count" class="count">500</span></div> -->
+      
+      <!-- <label><b>Enter Paytm Registered mobile number:</b></label>
+
+    <textarea placeholder="Enter number here..." id="numbers" style="height: 35px; width: 150px; margin-right: 5px:"></textarea>
+    <button type="button" class="btn btn-info" onclick="myFunction1()" id="withdraw" style="margin-bottom: 13px;">Withdraw</button>-->
+    
+    <img src="../images/workinprogress.gif" style="position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -(X/2)px;
+    margin-top: -(Y/2)px;">
 </div>
 
 
@@ -143,7 +111,32 @@ button:hover {
                   window.location = 'login.html';
               }
             });
+          $('.count').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 259200000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+          var usern = document.getElementById("username").value;
+          var user = firebase.auth().currentUser;
+          usern = firebaseuser;
+          
+          var counter= document.getElementById("count");
+            function myFunction1(){
+                var msgtext= withdraw.value;
+                var count= counter.innerHTML;
+                var data= {
+                  count, msgtext
+                }
 
+                firebaseRef.push(data);
+                window.alert("We have received your withdrawal request; however your payment will only process once you accumulate more than Rs. 350 in your balance.");
+            }
             //Add login event
           //  btnsubmit.addEventListener('click', e => {
                 //Get Email and pass
